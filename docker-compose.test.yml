@@ -1,7 +1,5 @@
 ---
 
-version: '3.5'
-
 services:
   mailhog:
     image: mailhog/mailhog:v1.0.1
