@@ -32,6 +32,7 @@ RUN apk --no-cache add \
     postconf virtual_alias_maps=mysql:/etc/postfix/mysql-virtual-alias-maps.cf,mysql:/etc/postfix/mysql-email2email.cf && \
     postconf smtpd_sender_login_maps=mysql:/etc/postfix/mysql-email-submission.cf && \
     postconf smtpd_recipient_restrictions="permit_mynetworks,reject_unauth_destination,check_recipient_access mysql:/etc/postfix/mysql-recipient-access.cf" && \
+    postconf smtpd_sender_restrictions="check_sender_access lmdb:/etc/postfix/sender_access" && \
     postconf smtputf8_enable=no && \
     postconf smtpd_milters="inet:${RSPAMD_HOST}:11332" && \
     postconf non_smtpd_milters="inet:${RSPAMD_HOST}:11332" && \

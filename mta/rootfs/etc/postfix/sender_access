@@ -1,0 +1,4 @@
+# ADDRESS PATTERNS         # ACTION
+#sender@example.com         550 Blacklisted
+#domain.com                 REJECT
+#user@                      REJECT

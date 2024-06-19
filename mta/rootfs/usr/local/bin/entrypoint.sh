@@ -14,6 +14,12 @@ then
   postconf mime_header_checks=regexp:/etc/postfix/mime_header_checks
 fi
 
+#fix permissions for postmap
+rm -f /etc/postfix/sender_access.lmdb
+chown root:root /etc/postfix/sender_access
+chmod 600 /etc/postfix/sender_access
+postmap /etc/postfix/sender_access
+
 if [ "${RELAYHOST}" != "false" ]
 then
   postconf relayhost="${RELAYHOST}"
